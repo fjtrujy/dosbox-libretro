@@ -394,6 +394,8 @@ public:
 			if (stat(buffer,&test)) {
 #if defined(VITA)
             strcpy(buffer,"ux0:/data/retroarch/");
+#elif defined(PSP)
+               strcpy(buffer, "ms0:/PSP/RETROARCH/");
 #else
             getcwd(buffer,CROSS_LEN);
 #endif
@@ -412,6 +414,8 @@ public:
 					line = buffer;
 #if defined(VITA)
                strcpy(buffer, "ux0:/data/retroarch/");
+#elif defined(PSP)
+               strcpy(buffer, "ms0:/PSP/RETROARCH/");
 #else
 					if (getcwd(buffer,CROSS_LEN) == NULL) continue;
 #endif
