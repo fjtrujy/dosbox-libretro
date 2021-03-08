@@ -100,6 +100,8 @@ static INLINE void retro_sleep(unsigned msec)
    udelay(1000 * msec);
 #elif defined(GEKKO) || defined(__PSL1GHT__) || defined(__QNX__)
    usleep(1000 * msec);
+#elif defined(PS2)
+   // printf("retro_sleep");
 #else
    struct timespec tv = {0};
    tv.tv_sec = msec / 1000;

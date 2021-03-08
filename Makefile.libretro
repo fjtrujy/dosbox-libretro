@@ -118,6 +118,18 @@ else ifeq ($(platform), ps2)
 	AR = ee-ar$(EXE_EXT)
 	WITH_DYNAREC = mips
 	COMMONFLAGS += -DPS2 -G0 -I$(PS2SDK)/ee/include -I$(PS2SDK)/common/include -I$(PS2SDK)/ports/include
+	COMMONFLAGS += -DECANCELED=140 -DENOTRECOVERABLE=141 -DEOWNERDEAD=142
+	STATIC_LINKING = 1
+
+else ifeq ($(platform), ps2_1)
+	TARGET := $(TARGET_NAME)_libretro_$(platform).a
+	CC = mips64r5900el-ps2-elf-gcc$(EXE_EXT)
+	CXX = mips64r5900el-ps2-elf-g++$(EXE_EXT)
+	AR = mips64r5900el-ps2-elf-ar$(EXE_EXT)
+	WITH_DYNAREC = mips
+	COMMONFLAGS += -DPS2 -D_EE -G0 -I$(PS2SDK)/ee/include -I$(PS2SDK)/common/include -I$(PS2SDK)/ports/include
+	CXXFLAGS += -std=gnu++11 -DECANCELED=140 -DENOTRECOVERABLE=141 -DEOWNERDEAD=142
+	CFLAGS += -std=gnu11 -DECANCELED=140 -DENOTRECOVERABLE=141 -DEOWNERDEAD=142
 	STATIC_LINKING = 1
 
 else ifeq ($(platform), psp1)

@@ -493,7 +493,7 @@ static Bitu INT11_Handler(void) {
 
 
 //android removed ftime in ndks >= android-ndk-r10
-#if defined(GEKKO) || defined(PSP) || defined(VITA) || defined(_3DS) || defined(__SWITCH__) || (defined(ANDROID) || defined(__GENODE__)) // No ftime support
+#if defined(GEKKO) || defined(PS2) || defined(PSP) || defined(VITA) || defined(_3DS) || defined(__SWITCH__) || (defined(ANDROID) || defined(__GENODE__)) // No ftime support
 struct FAKEtimeb
 {
    time_t time;

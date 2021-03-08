@@ -81,7 +81,9 @@
 /* #undef socklen_t */ /* Define to `int` if you don't have socklen_t */
 
 // ----- COMPILER FEATURES
+#if !defined(PS2)
 #define C_ATTRIBUTE_ALWAYS_INLINE 1
+#endif
 #define C_HAS_ATTRIBUTE 1
 #define C_HAS_BUILTIN_EXPECT 1
 /* #undef C_ATTRIBUTE_FASTCALL */
